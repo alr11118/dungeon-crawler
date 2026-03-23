@@ -26,6 +26,7 @@ public class Item {
 
    public Item() {
       // TODO: Pick a random item type from itemTypes
+      // iohg;n
    }
    
    public String getItemType() {
