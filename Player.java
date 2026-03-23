@@ -14,6 +14,7 @@ public class Player {
       this.playerName = playerName;      
       
       // TODO: create the empty Inventory
+      this.inventory = new ArrayList<Item>();
       
       // TODO: set the startingX and Y of the player
       this.currentX = startingX;
@@ -22,10 +23,12 @@ public class Player {
 
    public void addItemToInventory(Item item) {
       // TODO: add an item to inventory
+      inventory.add(item);
    }
    
    public Item removeItemFromInventory(Item item) {
       // TODO: remove an item to inventory. Return the Item so it can returned to the Room that it is in
+      inventory.remove(item);
    }
    
    
