@@ -20,6 +20,14 @@ public class Player {
       this.currentX = startingX;
       this.currentY = startingY;
    }
+   
+   public int getX() {
+      return this.currentX;
+   }
+   
+   public int getY() {
+      return this.currentY;
+   }
 
    public void addItemToInventory(Item item) {
       // TODO: add an item to inventory

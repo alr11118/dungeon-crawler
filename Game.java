@@ -14,6 +14,9 @@ public class Game {
       // TODO: Create a Player at a random location in the Map
       // HINT: Generate random row/column values using Math.random()
       // and pass them into the Player constructor
+      int playerX = (int)(Math.random()*dungeonMap.getNumRows());
+      int playerY = (int)(Math.random()*dungeonMap.getNumCols());
+      Player player = new Player(10, "player1", playerX, playerY);
             
       while (exitGame != true) {
             System.out.print("Enter command: ");
@@ -24,20 +27,37 @@ public class Game {
                 exitGame = true;
             }
             else if (input.equals("LOOK") || input.equals("SEARCH")) {
-               
+               System.out.println(player.look(dungeonMap));
             }
+            else if (input.equals("COORDINATES")) {
+               System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+            }
+
             // TODO: get the player movement working correctly. It should NOT let the player
             // move beyond the boundaries of the map, and provide the user with descriptions
             // of what is happening. You'll have to change the if/else/if statements here to 
             // do this.
             else if (input.startsWith("MOVE ")) {
                String direction = input.substring(5);
-               if (direction.equals("UP")) {
-               } else if (direction.equals("DOWN")) {
-               } else if (direction.equals("LEFT")) {    
-               } else if (direction.equals("RIGHT")) {
-               } else {
+               if (direction.equals("UP") && player.getY()+1 < dungeonMap.getNumCols()) {
+                  player.moveTo(player.getX(), player.getY() + 1);
+                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+               } 
+               else if (direction.equals("DOWN") && player.getY()-1 >= 0) {
+                  player.moveTo(player.getX(), player.getY() - 1);
+                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+               } 
+               else if (direction.equals("LEFT") && player.getX()-1 >= 0) {  
+                  player.moveTo(player.getX() - 1, player.getY()); 
+                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")"); 
+               } 
+               else if (direction.equals("RIGHT") && player.getX()+1 < dungeonMap.getNumRows()) {
+                  player.moveTo(player.getX() + 1, player.getY());
+                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+               } 
+               else {
                   System.out.println("You're trying to move in an invalid direction. Please choose UP, DOWN, LEFT or RIGHT");
+                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
                }
             }
          // TODO: display a message to the user telling them their current coordinates every time they move
