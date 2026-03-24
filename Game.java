@@ -32,6 +32,17 @@ public class Game {
             else if (input.equals("COORDINATES")) {
                System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
             }
+            else if (input.startsWith("TAKE ") {
+               String itamName = input.substring(5);
+               for(Item item : player.getRoom(dungeonMap).getItemsInTheRoom()) {
+                  if(itemName.equals(item.getItemType())) {
+                     player.addItemToInventory(item);
+                  }
+               }
+            }
+            else if (input.startsWith("DROP ")) {
+               String itemName = input.substring(5);
+            }
 
             // TODO: get the player movement working correctly. It should NOT let the player
             // move beyond the boundaries of the map, and provide the user with descriptions

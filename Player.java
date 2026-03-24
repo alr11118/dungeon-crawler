@@ -43,7 +43,7 @@ public class Player {
    
    public boolean hasItem(String itemName) {
       for(Item item : inventory) {
-         if(item.getItemType() == itemName) {
+         if(item.getItemType().equals(itemName)) {
             return true;
          }
       }

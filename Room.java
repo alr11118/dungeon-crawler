@@ -23,6 +23,22 @@ public class Room {
       }
    }
    
+   public ArrayList<Item> getItemsInRoom() {
+      return this.itemsInRoom;
+   }
+   
+   public ArrayList<Monster> getMonstersInRoom() {
+      return this.monstersInRoom;
+   }
+   
+   public void removeItem(Item item) {
+      this.itemsInRoom.remove(item);
+   }
+   
+   public void removeMonster(Monster monster) {
+      this.monstersInRoom.remove(monster);
+   }
+   
    public String toString() {
       String returnString = "Items in room: \n";
       for(Item item : itemsInRoom) {
