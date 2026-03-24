@@ -37,11 +37,19 @@ public class Game {
                for(Item item : player.getRoom(dungeonMap).getItemsInTheRoom()) {
                   if(itemName.equals(item.getItemType())) {
                      player.addItemToInventory(item);
+                     player.getRoom(dungeonMap).removeItem(item);
                   }
                }
             }
             else if (input.startsWith("DROP ")) {
                String itemName = input.substring(5);
+               if(player.hasItem(item)) {
+                  player.removeItemFromInventory(item);
+                  player.getRoom(dungeonMap).addItem(item); 
+               }
+               else {
+                  System.out.println("Erorr: Player does not have the item");
+               }
             }
 
             // TODO: get the player movement working correctly. It should NOT let the player
