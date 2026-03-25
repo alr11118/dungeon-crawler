@@ -2,26 +2,26 @@ public class Item {
    private String itemType;
    private boolean isEquipped;
    private final String[] itemTypes = {
-            "Rusty Sword",
-            "Healing Potion",
+            "Rusty_Sword",
+            "Healing_Potion",
             "Torch",
-            "Ancient Scroll",
-            "Leather Armor",
-            "Silver Key",
-            "Magic Amulet",
-            "Goblin Dagger",
-            "Spellbook of Fire",
-            "Bag of Gold Coins",
-            "Mysterious Rune Stone",
-            "Skeleton Bone",
-            "Cursed Ring",
-            "Potion of Invisibility",
-            "Iron Shield",
-            "Dragon Egg",
-            "Trap Disarming Kit",
-            "Crystal Orb",
-            "Venomous Dagger",
-            "Tattered Map"
+            "Ancient_Scroll",
+            "Leather_Armor",
+            "Silver_Key",
+            "Magic_Amulet",
+            "Goblin_Dagger",
+            "Spellbook_of_Fire",
+            "Bag_of_Gold_Coins",
+            "Mysterious_Rune_Stone",
+            "Skeleton_Bone",
+            "Cursed_Ring",
+            "Potion_of_Invisibility",
+            "Iron_Shield",
+            "Dragon_Egg",
+            "Trap_Disarming_Kit",
+            "Crystal_Orb",
+            "Venomous_Dagger",
+            "Tattered_Map"
         };
 
    public Item() {

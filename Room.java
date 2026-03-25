@@ -34,11 +34,14 @@ public class Room {
    public void removeItem(Item item) {
       this.itemsInRoom.remove(item);
    }
-   
+   public void addItem(Item item) {
+      this.itemsInRoom.add(item);
+   }
+      
    public void removeMonster(Monster monster) {
       this.monstersInRoom.remove(monster);
    }
-   
+    
    public String toString() {
       String returnString = "Items in room: \n";
       for(Item item : itemsInRoom) {

@@ -40,6 +40,14 @@ public class Player {
       return(item);
    }
    
+   public Item getItemByName(String itemName) {
+      for(Item item : this.inventory) {
+         if(item.getItemType().equals(itemName)) {
+            return item;
+         }
+      }
+      return null;
+   }
    
    public boolean hasItem(String itemName) {
       for(Item item : inventory) {
@@ -48,6 +56,14 @@ public class Player {
          }
       }
       return false;
+   }
+   
+   public String getInventory() {
+      String temp = "";
+      for(Item item : this.inventory) {
+         temp += item + " ";
+      }
+      return temp;
    }
    
    

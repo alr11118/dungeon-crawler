@@ -32,18 +32,25 @@ public class Game {
             else if (input.equals("COORDINATES")) {
                System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
             }
-            else if (input.startsWith("TAKE ") {
-               String itamName = input.substring(5);
-               for(Item item : player.getRoom(dungeonMap).getItemsInTheRoom()) {
-                  if(itemName.equals(item.getItemType())) {
+            else if (input.startsWith("TAKE ")) {
+               String itemName = input.substring(5);
+               boolean found = false;
+               for(Item item : player.getRoom(dungeonMap).getItemsInRoom()) {
+                  System.out.println(item);
+                  if(itemName.equals(item.getItemType().toUpperCase())) {
                      player.addItemToInventory(item);
                      player.getRoom(dungeonMap).removeItem(item);
+                     found = true;
                   }
+               }
+               if(!found){
+                  System.out.println("Erorr: Item not in room");
                }
             }
             else if (input.startsWith("DROP ")) {
                String itemName = input.substring(5);
-               if(player.hasItem(item)) {
+               if(player.hasItem(itemName)) {
+                  Item item = player.getItemByName(itemName);
                   player.removeItemFromInventory(item);
                   player.getRoom(dungeonMap).addItem(item); 
                }
@@ -51,6 +58,11 @@ public class Game {
                   System.out.println("Erorr: Player does not have the item");
                }
             }
+            
+             else if (input.equals("INVENTORY")) {
+               System.out.println("inventory: " + player.getInventory());
+            }
+
 
             // TODO: get the player movement working correctly. It should NOT let the player
             // move beyond the boundaries of the map, and provide the user with descriptions
