@@ -44,7 +44,7 @@ public class Room {
     
    public String toString() {
       String returnString = "Items in room: \n";
-      for(Item item : itemsInRoom) {
+      for(Item item : this.getItemsInRoom()) {
          returnString += item + "\n"; 
       }
       returnString += "Monsters in room: \n";

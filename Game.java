@@ -35,7 +35,8 @@ public class Game {
             else if (input.startsWith("TAKE ")) {
                String itemName = input.substring(5);
                boolean found = false;
-               for(Item item : player.getRoom(dungeonMap).getItemsInRoom()) {
+               for(int i = 0; i < player.getRoom(dungeonMap).getItemsInRoom().size(); i++) {
+                  Item item = player.getRoom(dungeonMap).getItemsInRoom().get(i);
                   System.out.println(item);
                   if(itemName.equals(item.getItemType().toUpperCase())) {
                      player.addItemToInventory(item);

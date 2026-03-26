@@ -32,6 +32,10 @@ public class Item {
 
    }
    
+   public void setIsItemEquiped(boolean bool) {
+      this.isEquipped = bool;
+   }
+   
    public String getItemType() {
       return this.itemType;
    }

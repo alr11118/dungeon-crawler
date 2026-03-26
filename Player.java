@@ -32,17 +32,19 @@ public class Player {
    public void addItemToInventory(Item item) {
       // TODO: add an item to inventory
       inventory.add(item);
+      item.setIsItemEquiped(true);
    }
    
    public Item removeItemFromInventory(Item item) {
       // TODO: remove an item to inventory. Return the Item so it can returned to the Room that it is in
       inventory.remove(item);
+      item.setIsItemEquiped(false);
       return(item);
    }
    
    public Item getItemByName(String itemName) {
       for(Item item : this.inventory) {
-         if(item.getItemType().equals(itemName)) {
+         if(item.getItemType().toUpperCase().equals(itemName.toUpperCase())) {
             return item;
          }
       }
@@ -51,7 +53,7 @@ public class Player {
    
    public boolean hasItem(String itemName) {
       for(Item item : inventory) {
-         if(item.getItemType().equals(itemName)) {
+         if(item.getItemType().toUpperCase().equals(itemName.toUpperCase())) {
             return true;
          }
       }
