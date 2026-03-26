@@ -1,13 +1,14 @@
 public class Monster {
 private String monsterType;
+private int monsterHealth;
    private final String[] monsterTypes = {
             "Goblin",
-            "Skeleton Warrior",
+            "Skeleton_Warrior",
             "Zombie",
             "Orc",
-            "Dark Sorcerer",
-            "Giant Spider",
-            "Vampire Bat",
+            "Dark_Sorcerer",
+            "Giant_Spider",
+            "Vampire_Bat",
             "Slime",
             "Mimic",
             "Lich",
@@ -18,17 +19,20 @@ private String monsterType;
             "Minotaur",
             "Basilisk",
             "Doppelgänger",
-            "Demon Hound",
-            "Cave Serpent",
-            "Ancient Dragon"
+            "Demon_Hound",
+            "Cave_Serpent",
+            "Ancient_Dragon"
         };
 
    public Monster() {
       // TODO: Pick a random monster type from monsterTypes
       int randomIndex = (int)(Math.random()*monsterTypes.length);
       this.monsterType = monsterTypes[randomIndex];
+      this.monsterHealth = 100;
    }
-   
+   public int getMonsterHealth() {
+      return this.monsterHealth;
+   }
    
    public String getMonsterType() {
       return this.monsterType;
@@ -36,6 +40,6 @@ private String monsterType;
    
    public String toString() {
       // TODO: Build a descriptive String for use by other methods
-      return("Monster: " + this.monsterType);
+      return("Monster: " + this.monsterType + " Health: " + this.monsterHealth);
    }
 }

@@ -28,6 +28,10 @@ public class Player {
    public int getY() {
       return this.currentY;
    }
+   
+   public int getPlayerHealth() {
+      return this.health;
+   }
 
    public void addItemToInventory(Item item) {
       // TODO: add an item to inventory

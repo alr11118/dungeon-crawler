@@ -29,15 +29,20 @@ public class Game {
             else if (input.equals("LOOK") || input.equals("SEARCH")) {
                System.out.println(player.look(dungeonMap));
             }
+            
             else if (input.equals("COORDINATES")) {
                System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
             }
+            
+            else if (input.equals("INVENTORY")) {
+               System.out.println("inventory: " + player.getInventory());
+            }
+            
             else if (input.startsWith("TAKE ")) {
                String itemName = input.substring(5);
                boolean found = false;
                for(int i = 0; i < player.getRoom(dungeonMap).getItemsInRoom().size(); i++) {
                   Item item = player.getRoom(dungeonMap).getItemsInRoom().get(i);
-                  System.out.println(item);
                   if(itemName.equals(item.getItemType().toUpperCase())) {
                      player.addItemToInventory(item);
                      player.getRoom(dungeonMap).removeItem(item);
@@ -48,6 +53,7 @@ public class Game {
                   System.out.println("Erorr: Item not in room");
                }
             }
+            
             else if (input.startsWith("DROP ")) {
                String itemName = input.substring(5);
                if(player.hasItem(itemName)) {
@@ -60,8 +66,34 @@ public class Game {
                }
             }
             
-             else if (input.equals("INVENTORY")) {
-               System.out.println("inventory: " + player.getInventory());
+            // Fights using the fist item in the inventory
+            else if (input.startsWith("FIGHT ")) 
+            {
+               // Sainty checks
+               String monsterName = input.substring(6);
+               if(!player.getRoom(dungeonMap).hasMonster(monsterName)) 
+               {
+                  System.out.println("Erorr: Monster not in the room");
+
+               }
+               if(player.getInventory.get(1) != null)
+               {
+                  System.out.println("Erorr: No items to fight");
+               }
+               Monster monster = player.getRoom(dungeonMap).getMonsterByName(monsterName);
+                                 
+               int monsterHealth = monster.getHealth();
+               int playerHealth = player.getHealth();
+               // Simutale fight!!
+               
+               if(playerhealth <= 0) {
+                  System.out.println("Erorr: You died");
+                  exitGame = true;
+               }
+               else if(monsterHealth <= 0) {
+                  System.out.println("You won!!");
+                  player.getRoom(dungeonMap).removeMonster(monster);
+               }
             }
 
 

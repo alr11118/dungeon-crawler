@@ -41,6 +41,25 @@ public class Room {
    public void removeMonster(Monster monster) {
       this.monstersInRoom.remove(monster);
    }
+   
+   public boolean hasMonster(String monsterName) {
+      for(Monster monster : monstersInRoom) {
+         if(monster.getMonsterType().toUpperCase().equals(monsterName.toUpperCase())) {
+            return true;
+         }
+      }
+      return false;
+   }
+   
+   public Monster getMonsterByName(String monsterName) {
+      for(Monster monster : monstersInRoom) {
+         if(monster.getMonsterType().toUpperCase().equals(monsterName.toUpperCase())) {
+            return monster;
+         }
+      }
+      return null;
+
+   }
     
    public String toString() {
       String returnString = "Items in room: \n";
