@@ -67,6 +67,14 @@ public class Game {
             }
             
             // Fights using the fist item in the inventory
+            // How do I want the improved monster fight to look like: 
+            //you pick which monster you want there are special graphics, 
+            // items dont have health but they have damage values/levels, 
+            // you fight with the hishest item you have, 
+            // monsters also have damage values and you hit eachother one by one, 
+            // who dies forst looses there are healing posions hidden in some rooms
+            
+            // What do I want to do right now: chose which monster to fight, eliminate it
             else if (input.startsWith("FIGHT ")) 
             {
                // Sainty checks
@@ -76,17 +84,18 @@ public class Game {
                   System.out.println("Erorr: Monster not in the room");
 
                }
-               if(player.getInventory.get(1) != null)
+               if(player.getInventoryAsList().size() <= 0)
                {
                   System.out.println("Erorr: No items to fight");
                }
                Monster monster = player.getRoom(dungeonMap).getMonsterByName(monsterName);
                                  
-               int monsterHealth = monster.getHealth();
-               int playerHealth = player.getHealth();
+               int monsterHealth = monster.getMonsterHealth();
+               int playerHealth = player.getPlayerHealth();
                // Simutale fight!!
+               monsterHealth = 0;
                
-               if(playerhealth <= 0) {
+               if(playerHealth <= 0) {
                   System.out.println("Erorr: You died");
                   exitGame = true;
                }

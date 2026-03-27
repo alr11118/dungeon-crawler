@@ -34,6 +34,7 @@ public class Room {
    public void removeItem(Item item) {
       this.itemsInRoom.remove(item);
    }
+   
    public void addItem(Item item) {
       this.itemsInRoom.add(item);
    }

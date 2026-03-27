@@ -32,6 +32,10 @@ public class Player {
    public int getPlayerHealth() {
       return this.health;
    }
+   
+   public ArrayList<Item> getInventoryAsList() {
+      return this.inventory;
+   }
 
    public void addItemToInventory(Item item) {
       // TODO: add an item to inventory
@@ -55,15 +59,6 @@ public class Player {
       return null;
    }
    
-   public boolean hasItem(String itemName) {
-      for(Item item : inventory) {
-         if(item.getItemType().toUpperCase().equals(itemName.toUpperCase())) {
-            return true;
-         }
-      }
-      return false;
-   }
-   
    public String getInventory() {
       String temp = "";
       for(Item item : this.inventory) {
@@ -72,22 +67,31 @@ public class Player {
       return temp;
    }
    
+   public Room getRoom(Map map) {
+      // TODO: return the room object that the player is currently in, given the Map that was passed
+      return map.getRoom(currentX, currentY);
+   }
    
+   public boolean hasItem(String itemName) {
+      for(Item item : inventory) {
+         if(item.getItemType().toUpperCase().equals(itemName.toUpperCase())) {
+            return true;
+         }
+      }
+      return false;
+   }
+
    public String look(Map map) {
       // TODO: This method will take the player's current X and Y, and return the contents of the room
       // they are in with a descriptive String
       // HINT: Use map.getRoom(currentX, currentY) and call toString()
       return map.getRoom(currentX, currentY).toString();
    }
+   
    public void moveTo(int x, int y) {
       // TODO: Update the Player's currentX and currentY values.
       this.currentX = x;
       this.currentY = y;
-   }
-   
-   public Room getRoom(Map map) {
-      // TODO: return the room object that the player is currently in, given the Map that was passed
-      return map.getRoom(currentX, currentY);
    }
    
    public static void main(String[] args) {
