@@ -77,7 +77,7 @@ public class Game {
             // monsters also have damage values and you hit eachother one by one, 
             // who dies forst looses there are healing posions hidden in some rooms
             
-            // What do I want to do right now: chose which monster to fight, eliminate it
+            // What do I want to do right now: 
             else if (input.startsWith("FIGHT ")) 
             {
                // Sainty checks
@@ -91,18 +91,30 @@ public class Game {
                {
                   System.out.println("Erorr: No items to fight");
                }
-               Monster monster = player.getRoom(dungeonMap).getMonsterByName(monsterName);
-                                 
-               int monsterHealth = monster.getMonsterHealth();
-               int playerHealth = player.getPlayerHealth();
-               // Simutale fight!!
-               monsterHealth = 0;
                
-               if(playerHealth <= 0) {
-                  System.out.println("Erorr: You died");
+               Monster monster = player.getRoom(dungeonMap).getMonsterByName(monsterName);
+               Item highestItem = player.getHighestItem();
+               System.out.println("Starting Fight!!!");
+               System.out.println("Player health: " + player.getPlayerHealth());
+               System.out.println("Monster health: " + monster.getMonsterHealth());
+
+               // Simutale fight!!
+               while(player.getPlayerHealth() > 0 && monster.getMonsterHealth() > 0) {
+                  // First the player hits
+                  monster.damageMonster(highestItem.getDamage());
+                  // then the monster hits
+                  player.damagePlayer(monster.getDamagePerHit()); 
+                  // Log healths 
+                  System.out.println("Player health: " + player.getPlayerHealth());
+                  System.out.println("Monster health: " + monster.getMonsterHealth());
+               }
+               
+               // Check who died
+               if(player.getPlayerHealth() <= 0) {
+                  System.out.println("You died");
                   exitGame = true;
                }
-               else if(monsterHealth <= 0) {
+               else if(monster.getMonsterHealth() <= 0) {
                   System.out.println("You won!!");
                   player.getRoom(dungeonMap).removeMonster(monster);
                }

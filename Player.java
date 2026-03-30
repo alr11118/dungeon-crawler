@@ -33,6 +33,10 @@ public class Player {
       return this.health;
    }
    
+   public void damagePlayer(int damage) {
+      this.health -= damage;
+   }
+   
    public ArrayList<Item> getInventoryAsList() {
       return this.inventory;
    }

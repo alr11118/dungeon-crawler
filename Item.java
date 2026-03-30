@@ -51,6 +51,10 @@ public class Item {
       return this.level;
    }
    
+   public int getDamage() {
+      return this.damagePerHit;
+   }
+   
    public void setIsItemEquiped(boolean bool) {
       this.isEquipped = bool;
    }
