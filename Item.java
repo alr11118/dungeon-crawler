@@ -1,7 +1,9 @@
 public class Item {
-   private String itemTypeName;
    private ItemType itemType;
    private boolean isEquipped;
+   private String name;
+   private int level;
+   private int damagePerHit;
    private final ItemType[] itemTypes = {
             new ItemType("Rusty_Sword", 10, 5),
             //new ItemType("Healing_Potion", 10, 5), healing potion will be seperate
@@ -29,18 +31,24 @@ public class Item {
    public Item() {
       // TODO: Pick a random item type from itemTypes
       int randomIndex = (int)(Math.random()*itemTypes.length);
-      this.itemTypeName = itemTypes[randomIndex].name();
       this.itemType = itemTypes[randomIndex];
+      this.name = itemType.name();
+      this.level = itemType.level();
+      this.damagePerHit = itemType.damage();
       this.isEquipped = false;
 
    }
 
    public String getItemType() {
-      return this.itemTypeName;
+      return this.name;
    }
    
    public boolean getIsItemEquiped() {
       return(this.isEquipped);
+   }
+   
+   public int getLevel() {
+      return this.level;
    }
    
    public void setIsItemEquiped(boolean bool) {
@@ -50,7 +58,7 @@ public class Item {
    
    public String toString() {
       // TODO: Build a descriptive String for use by other methods
-      return("Item: " + this.itemTypeName + ", is Equiped: " + isEquipped);
+      return("Item: " + this.name + ", is Equiped: " + isEquipped + ", Level: " + this.level);
 
    }
 }

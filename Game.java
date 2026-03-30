@@ -37,6 +37,9 @@ public class Game {
             else if (input.equals("INVENTORY")) {
                System.out.println("inventory: " + player.getInventory());
             }
+            else if (input.equals("HIGHEST_ITEM")) {
+               System.out.println("Highest item: " + player.getHighestItem());
+            }
             
             else if (input.startsWith("TAKE ")) {
                String itemName = input.substring(5);
@@ -68,7 +71,7 @@ public class Game {
             
             // Fights using the fist item in the inventory
             // How do I want the improved monster fight to look like: 
-            //you pick which monster you want there are special graphics, 
+            // you pick which monster you want,
             // items dont have health but they have damage values/levels, 
             // you fight with the hishest item you have, 
             // monsters also have damage values and you hit eachother one by one, 

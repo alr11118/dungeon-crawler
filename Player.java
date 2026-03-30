@@ -67,6 +67,21 @@ public class Player {
       return temp;
    }
    
+   public Item getHighestItem() {
+      if(inventory.size() <= 0) {
+         System.out.println("No items!!");
+         return null;
+      }
+      
+      Item highestItem = inventory.get(0);
+      for(Item item : inventory) {
+         if(highestItem.getLevel() < item.getLevel()) {
+            highestItem = item;
+         }
+      }
+      return highestItem;
+   }
+   
    public Room getRoom(Map map) {
       // TODO: return the room object that the player is currently in, given the Map that was passed
       return map.getRoom(currentX, currentY);
