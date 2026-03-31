@@ -1,0 +1,11 @@
+How to play:
+Move using command 'move' with 'up', 'down', 'right' and 'left' directions.
+Example: move up
+Get current coordinates using the command 'coordinates'
+Use the 'look' command to look arround the room
+Use 'take <item name>' command to take items from the room to your inventory
+Example: take Rusty_Sword
+Use 'drop <item name>' command to drop items from your inventory into your current room
+Example: drop Rusty_Sword
+Use 'invemtory' command to view your inventory
+Use 'fight <monster name>' command to fight the monsters that are in the same room as you

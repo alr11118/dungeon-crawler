@@ -37,10 +37,7 @@ public class Game {
             else if (input.equals("INVENTORY")) {
                System.out.println("inventory: " + player.getInventory());
             }
-            else if (input.equals("HIGHEST_ITEM")) {
-               System.out.println("Highest item: " + player.getHighestItem());
-            }
-            
+                        
             else if (input.startsWith("TAKE ")) {
                String itemName = input.substring(5);
                boolean found = false;
@@ -106,6 +103,10 @@ public class Game {
                   // then the monster hits
                   player.damagePlayer(monster.getDamagePerHit()); 
                   // Log healths 
+                  printWithDelayNoNewLine(".");
+                  printWithDelayNoNewLine(".");
+                  printWithDelayNoNewLine(".");
+                  printWithDelayNoNewLine("\n");
                   printWithDelay("Player health: " + player.getPlayerHealth());
                   printWithDelay("Monster health: " + monster.getMonsterHealth());
                }
@@ -116,7 +117,7 @@ public class Game {
                   exitGame = true;
                }
                else if(monster.getMonsterHealth() <= 0) {
-                  System.out.println("You won!!");
+                  printWithDelay("You won!!");
                   player.getRoom(dungeonMap).removeMonster(monster);
                }
             }
@@ -161,5 +162,14 @@ public class Game {
          
       }
       System.out.println(text);
+   }
+   public static void printWithDelayNoNewLine(String text) {
+      try {
+         Thread.sleep(1000);
+      } 
+      catch (Exception e) {
+         
+      }
+      System.out.print(text);
    }
 }
