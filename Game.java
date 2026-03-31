@@ -16,7 +16,7 @@ public class Game {
       // and pass them into the Player constructor
       int playerX = (int)(Math.random()*dungeonMap.getNumRows());
       int playerY = (int)(Math.random()*dungeonMap.getNumCols());
-      Player player = new Player(10, "player1", playerX, playerY);
+      Player player = new Player(100, "player1", playerX, playerY);
             
       while (exitGame != true) {
             System.out.print("Enter command: ");
@@ -100,6 +100,12 @@ public class Game {
 
                // Simutale fight!!
                while(player.getPlayerHealth() > 0 && monster.getMonsterHealth() > 0) {
+                  try {
+                     Thread.sleep(1000);
+                  } 
+                  catch (Exception e) {
+                     continue;
+                  }
                   // First the player hits
                   monster.damageMonster(highestItem.getDamage());
                   // then the monster hits
@@ -107,6 +113,7 @@ public class Game {
                   // Log healths 
                   System.out.println("Player health: " + player.getPlayerHealth());
                   System.out.println("Monster health: " + monster.getMonsterHealth());
+                  
                }
                
                // Check who died
