@@ -5,36 +5,35 @@ public class Item {
    private int level;
    private int damagePerHit;
    private final ItemType[] itemTypes = {
-            new ItemType("Rusty_Sword", 10, 5),
-            //new ItemType("Healing_Potion", 10, 5), healing potion will be seperate
-            new ItemType("Torch", 10, 13),
-            new ItemType("Ancient_Scroll", 10, 10),
-            new ItemType("Leather_Armor", 10, 7),
-            new ItemType("Silver_Key", 10, 10),
-            new ItemType("Magic_Amulet", 10, 15),
-            new ItemType("Goblin_Dagger", 10, 12),
-            new ItemType("Spellbook_of_Fire", 10, 14),
-            new ItemType("Bag_of_Gold_Coins", 10, 5),
-            new ItemType("Mysterious_Rune_Stone", 10, 10),
-            new ItemType("Skeleton_Bone", 10, 5),
-            new ItemType("Cursed_Ring", 10, 15),
-            new ItemType("Potion_of_Invisibility", 10, 15),
-            new ItemType("Iron_Shield", 10, 12),
-            new ItemType("Dragon_Egg", 10, 10),
-            new ItemType("Trap_Disarming_Kit", 10, 14),
-            new ItemType("Crystal_Orb", 10, 16),
-            new ItemType("Venomous_Dagger", 10, 19),
-            new ItemType("Tattered_Map", 10, 13)
+            new ItemType("Rusty_Sword", 100),
+            new ItemType("Torch", 75),
+            new ItemType("Ancient_Scroll", 65),
+            new ItemType("Leather_Armor", 10),
+            new ItemType("Silver_Key", 55),
+            new ItemType("Magic_Amulet", 100),
+            new ItemType("Goblin_Dagger", 65),
+            new ItemType("Spellbook_of_Fire", 80),
+            new ItemType("Bag_of_Gold_Coins", 55),
+            new ItemType("Mysterious_Rune_Stone", 90),
+            new ItemType("Skeleton_Bone", 70),
+            new ItemType("Cursed_Ring", 75),
+            new ItemType("Potion_of_Invisibility", 65),
+            new ItemType("Iron_Shield", 80),
+            new ItemType("Dragon_Egg", 85),
+            new ItemType("Trap_Disarming_Kit", 65),
+            new ItemType("Crystal_Orb", 90),
+            new ItemType("Venomous_Dagger", 95),
+            new ItemType("Tattered_Map", 80)
         };
-   public record ItemType(String name, int damage, int level) {}
+   public record ItemType(String name, int damage) {}
 
    public Item() {
       // TODO: Pick a random item type from itemTypes
       int randomIndex = (int)(Math.random()*itemTypes.length);
       this.itemType = itemTypes[randomIndex];
       this.name = itemType.name();
-      this.level = itemType.level();
       this.damagePerHit = itemType.damage();
+      this.level = (int)Math.round((this.damagePerHit-50)/2.5);
       this.isEquipped = false;
 
    }
