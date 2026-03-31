@@ -6,55 +6,40 @@ public class Monster {
    private int damagePerHit;
    
    private final MonsterType[] monsterTypes = {
-            new MonsterType("Goblin", 10, 200), 
-            new MonsterType("Skeleton_Warrior", 5, 100),
-            new MonsterType("Zombie", 5, 100),
-            new MonsterType("Orc", 5, 100),
-            new MonsterType("Dark_Sorcerer", 5, 100),
-            new MonsterType("Giant_Spider", 5, 100),
-            new MonsterType("Vampire_Bat", 5, 100),
-            new MonsterType("Slime", 5, 100),
-            new MonsterType("Mimic", 5, 100),
-            new MonsterType("Lich", 5, 100),
-            new MonsterType("Troll", 5, 100),
-            new MonsterType("Werewolf", 5, 100),
-            new MonsterType("Gargoyle", 5, 200),
-            new MonsterType("Wraith", 5, 100),
-            new MonsterType("Minotaur", 5, 100),
-            new MonsterType("Basilisk", 5, 100),
-            new MonsterType("Doppelgänger", 5, 100),
-            new MonsterType("Demon_Hound", 5, 100),
-            new MonsterType("Cave_Serpent", 5, 100),
-            new MonsterType("Ancient_Dragon", 5, 100)
+            new MonsterType("Goblin", 30, 100), 
+            new MonsterType("Skeleton_Warrior", 20, 150),
+            new MonsterType("Zombie", 40, 150),
+            new MonsterType("Orc", 45, 175),
+            new MonsterType("Dark_Sorcerer", 50, 100),
+            new MonsterType("Giant_Spider", 45, 125),
+            new MonsterType("Vampire_Bat", 25, 120),
+            new MonsterType("Slime", 15, 100),
+            new MonsterType("Mimic", 50, 100),
+            new MonsterType("Lich", 60, 150),
+            new MonsterType("Troll", 65, 150),
+            new MonsterType("Werewolf", 60, 175),
+            new MonsterType("Gargoyle", 60, 200),
+            new MonsterType("Wraith", 70, 190),
+            new MonsterType("Minotaur", 70, 180),
+            new MonsterType("Basilisk", 70, 180),
+            new MonsterType("Doppelgänger", 75, 170),
+            new MonsterType("Demon_Hound", 70, 130),
+            new MonsterType("Cave_Serpent", 60, 120),
+            new MonsterType("Ancient_Dragon", 80, 250)
         };
         
-   public record MonsterType(String name, int level, int startingHealth) {}
+   public record MonsterType(String name, int damagePerHit, int startingHealth) {}
 
    public Monster() {
       // TODO: Pick a random monster type from monsterTypes
       int randomIndex = (int)(Math.random()*monsterTypes.length);
       this.monsterType = monsterTypes[randomIndex];
       this.name = monsterType.name;
-      this.level = monsterType.level;
+      this.damagePerHit = monsterType.damagePerHit;
       this.health = monsterType.startingHealth;
-      
-      // Idea maybe use a switch case...later
-      if(this.level < 5){
-         this.damagePerHit = 10;
-      }
-      else if(this.level < 10 && this.level >= 5){
-         this.damagePerHit = 25;
-      }
-      else if(this.level < 15 && this.level >= 10){
-         this.damagePerHit = 50;
-      }
-      else if(this.level <= 20 && this.level >= 15){
-         this.damagePerHit = 65;
-      }
-      else{
-         this.damagePerHit = 10;
-      }
+      this.level = (int) Math.round(this.damagePerHit/4);
    }
+   
    public int getMonsterHealth() {
       return this.health;
    }
@@ -69,6 +54,9 @@ public class Monster {
    
    public void damageMonster(int damageAmount) {
       this.health -= damageAmount;
+      if(health < 0) {
+         health = 0;
+      }
    }
    
    public String toString() {

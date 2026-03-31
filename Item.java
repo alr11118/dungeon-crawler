@@ -8,7 +8,7 @@ public class Item {
             new ItemType("Rusty_Sword", 100),
             new ItemType("Torch", 75),
             new ItemType("Ancient_Scroll", 65),
-            new ItemType("Leather_Armor", 10),
+            new ItemType("Leather_Armor", 65),
             new ItemType("Silver_Key", 55),
             new ItemType("Magic_Amulet", 100),
             new ItemType("Goblin_Dagger", 65),
