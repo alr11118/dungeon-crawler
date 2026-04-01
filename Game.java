@@ -77,7 +77,7 @@ public class Game {
             // monsters also have damage values and you hit eachother one by one, 
             // who dies forst looses there are healing posions hidden in some rooms
             
-            // What do I want to do right now: have damage values stated and calculate levels from damage values
+            // What do I want to do right now: random healing p[otions with different colors and healing values you can grab them amd then you can drink them 
             else if (input.startsWith("FIGHT ")) 
             {
                // Sainty checks
