@@ -17,7 +17,10 @@ public class Game {
       int playerX = (int)(Math.random()*dungeonMap.getNumRows());
       int playerY = (int)(Math.random()*dungeonMap.getNumCols());
       Player player = new Player(500, "player1", playerX, playerY);
-            
+      
+      // Game Directions
+      System.out.print("How to play:\nMove using command 'move' with 'up', 'down', 'right' and 'left' directions.\nExample: move up\nGet current coordinates using the command 'coordinates'\nUse the 'look' command to look arround the room\nUse 'take <item name>' command to take items from the room to your inventory\nExample: take Rusty_Sword\nUse 'drop <item name>' command to drop items from your inventory into your current room\nExample: drop Rusty_Sword\nUse 'invemtory' command to view your inventory\nUse 'fight <monster name>' command to fight the monsters that are in the same room as you, using your highest level item.\nExample: fight Ancient_Dragon\nIf your health drops to 0 you die and the game exits\nTo exit the game yourself use the command 'exit'\n");
+      
       while (exitGame != true) {
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
