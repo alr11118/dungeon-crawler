@@ -38,6 +38,16 @@ public class Room {
       return this.monstersInRoom;
    }
    
+   public boolean isThereAHealingPotion() {
+      return isThereAHealingPotion;
+   }
+   
+   public HealingPotion drinkPotion() {
+      HealingPotion temp = healingPotions.get(0);
+      this.removeHealingPotion();
+      return temp;
+   }
+   
    public void removeItem(Item item) {
       this.itemsInRoom.remove(item);
    }

@@ -69,6 +69,17 @@ public class Game {
                }
             }
             
+            else if (input.startsWith("Drink_Potion")) {
+               if(player.getRoom(dungeonMap).isThereAHealingPotion()) {
+                  HealingPotion healingPotion = player.getRoom(dungeonMap).drinkPotion();
+                  player.drinkHealingPotion(healingPotion);
+               }
+               else {
+                  System.out.println("Erorr: No potions to drink");
+               }
+            }
+
+            
             // Fights using the fist item in the inventory
             // How do I want the improved monster fight to look like: 
             // you pick which monster you want,

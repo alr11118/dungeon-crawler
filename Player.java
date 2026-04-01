@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Player {
    private ArrayList<Item> inventory;
+   //private ArrayList<HealingPotion> healingPotions;
    private String playerName;
    private int health;
    private int currentX;
@@ -15,6 +16,7 @@ public class Player {
       
       // TODO: create the empty Inventory
       this.inventory = new ArrayList<Item>();
+      //this.healingPotions = new ArrayList<HealingPotion>();
       
       // TODO: set the startingX and Y of the player
       this.currentX = startingX;
@@ -98,6 +100,10 @@ public class Player {
          }
       }
       return false;
+   }
+   
+   public void drinkHealingPotion(HealingPotion healingPotion) {
+      this.health += healingPotion.getHealValue();
    }
 
    public String look(Map map) {
