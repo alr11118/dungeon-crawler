@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Room {
    private ArrayList<Item> itemsInRoom;
    private ArrayList<Monster> monstersInRoom;
+   private ArrayList<HealingPotion> healingPotions;
+   private boolean isThereAHealingPotion;
    private final int maxNumberOfMonsters = 2;
    private final int maxNumberOfItems = 2;
    
@@ -20,6 +22,11 @@ public class Room {
       int numberOfMonsters = (int)(Math.random() * (maxNumberOfMonsters))+1;
       for(int i = 0; i < numberOfMonsters; i++) {
          monstersInRoom.add(new Monster());
+      }
+      
+      this.isThereAHealingPotion = Math.random() > 0.5;
+      if(isThereAHealingPotion) {
+         healingPotions.add(new HealingPotion());
       }
    }
    
@@ -41,6 +48,11 @@ public class Room {
       
    public void removeMonster(Monster monster) {
       this.monstersInRoom.remove(monster);
+   }
+   
+   public void removeHealingPotion() {
+      isThereAHealingPotion = false;
+      healingPotions.clear();
    }
    
    public boolean hasMonster(String monsterName) {
@@ -70,6 +82,9 @@ public class Room {
       returnString += "Monsters in room: \n";
       for(Monster monster : monstersInRoom) {
          returnString += monster + "\n"; 
+      }
+      if(isThereAHealingPotion) {
+         returnString += healingPotions.get(0) + "\n";
       }
       // TODO: build a returnString that nicely formats the Monsters and Items in the Room
       // HINT: Use a for-each loop to go through the ArrayLists
