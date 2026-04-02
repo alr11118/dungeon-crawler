@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Map {
 
    private Room[][] roomGrid;
@@ -28,6 +30,19 @@ public class Map {
    public int getNumCols() {
       // TODO: return the number of columns in roomGrid
       return roomGrid[0].length;
+   }
+   
+   public boolean isThereAnyMonstersLeft() {
+      boolean isThereAMonster = false;
+      for(int row = 0; row < roomGrid.length; row++) {
+         for(int col = 0; col < roomGrid[0].length; col++) {
+            ArrayList<Monster> monstersInRoom = roomGrid[row][col].getMonstersInRoom();
+            if(monstersInRoom.size() > 0) {
+               isThereAMonster = true;
+            }
+         }
+      }
+      return isThereAMonster;
    }
    
    public Room getRoom(int row, int column) {

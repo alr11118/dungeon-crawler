@@ -19,9 +19,12 @@ public class Game {
       Player player = new Player(500, "player1", playerX, playerY);
       
       // Game Directions
-      System.out.print("How to play:\nMove using command 'move' with 'up', 'down', 'right' and 'left' directions.\nExample: move up\nGet current coordinates using the command 'coordinates'\nUse the 'look' command to look arround the room\nUse 'take <item name>' command to take items from the room to your inventory\nExample: take Rusty_Sword\nUse 'drop <item name>' command to drop items from your inventory into your current room\nExample: drop Rusty_Sword\nUse 'invemtory' command to view your inventory\nUse 'fight <monster name>' command to fight the monsters that are in the same room as you, using your highest level item.\nExample: fight Ancient_Dragon\nIf your health drops to 0 you die and the game exits\nTo exit the game yourself use the command 'exit'\n");
+      System.out.print("How to play:\nMove using command 'move' with 'up', 'down', 'right' and 'left' directions.\nExample: move up\nGet current coordinates using the command 'coordinates'\nUse the 'look' command to look arround the room\nUse 'take <item name>' command to take items from the room to your inventory\nExample: take Rusty_Sword\nUse 'drop <item name>' command to drop items from your inventory into your current room\nExample: drop Rusty_Sword\nUse 'invemtory' command to view your inventory\nUse 'fight <monster name>' command to fight the monsters that are in the same room as you, using your highest level item.\nExample: fight Ancient_Dragon\nIf your health drops to 0 you die and the game exits\nTo drink one of the healing potiones in the room use the command 'drink potion'\nTo exit the game yourself use the command 'exit'.\nThe game ends when you defeat all the monsters.\n");
+      // Game conditions
+      boolean isThereAMonster = dungeonMap.isThereAnyMonstersLeft(); 
       
-      while (exitGame != true) {
+      while (exitGame != true && isThereAMonster == true) {
+            isThereAMonster = dungeonMap.isThereAnyMonstersLeft();
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
                         
@@ -89,7 +92,6 @@ public class Game {
             // monsters also have damage values and you hit eachother one by one, 
             // who dies forst looses there are healing posions hidden in some rooms
             
-            // What do I want to do right now: random healing p[otions with different colors and healing values you can grab them amd then you can drink them 
             else if (input.startsWith("FIGHT ")) 
             {
                // Sainty checks
@@ -166,6 +168,10 @@ public class Game {
                }
             }
          // TODO: display a message to the user telling them their current coordinates every time they move
+       }
+       if(isThereAMonster == false) {
+         System.out.println("Congratulations!!!");
+         System.out.println("You finished the game.");
        }
    }
    
