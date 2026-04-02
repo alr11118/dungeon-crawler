@@ -13,6 +13,7 @@ public class Room {
       // TODO: Create the ArrayLists to hold the Items and Monsters in the Room and populate them with Monsters and Items
       this.itemsInRoom = new ArrayList<Item>();
       this.monstersInRoom = new ArrayList<Monster>();
+      this.healingPotions = new ArrayList<HealingPotion>();
 
       int numberOfItems = (int)(Math.random() * (maxNumberOfItems))+1;
       for(int i = 0; i < numberOfItems; i++) {
@@ -93,6 +94,7 @@ public class Room {
       for(Monster monster : monstersInRoom) {
          returnString += monster + "\n"; 
       }
+      returnString += "Healing Potions in room: \n";
       if(isThereAHealingPotion) {
          returnString += healingPotions.get(0) + "\n";
       }

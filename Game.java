@@ -69,10 +69,11 @@ public class Game {
                }
             }
             
-            else if (input.startsWith("Drink_Potion")) {
+            else if (input.equals("DRINK POTION")) {
                if(player.getRoom(dungeonMap).isThereAHealingPotion()) {
                   HealingPotion healingPotion = player.getRoom(dungeonMap).drinkPotion();
                   player.drinkHealingPotion(healingPotion);
+                  System.out.println("The potion is drank, Health: " + player.getPlayerHealth());
                }
                else {
                   System.out.println("Erorr: No potions to drink");
