@@ -7,7 +7,7 @@ public class Player {
    private int health;
    private int currentX;
    private int currentY;
-
+   
 
    public Player(int health, String playerName, int startingX, int startingY) {
       // set the health and playerName to the passed parameters
@@ -92,6 +92,24 @@ public class Player {
       // TODO: return the room object that the player is currently in, given the Map that was passed
       return map.getRoom(currentX, currentY);
    }
+   
+   public void printInMap(Map map) {
+      String mapVisual = "Current Coordinates: (" + (this.currentX) + ", " + (this.currentY) +")\n";
+
+      for(int row = 0; row < map.getNumCols(); row++) {
+         for(int col = 0; col < map.getNumRows(); col++) {
+            if(row == this.currentY && col == this.currentX) {
+               mapVisual += "|x";
+            }
+            else {
+               mapVisual += "| ";
+            }
+         }
+         mapVisual += "|\n";
+      }
+      System.out.print(mapVisual);
+   }
+
    
    public boolean hasItem(String itemName) {
       for(Item item : inventory) {

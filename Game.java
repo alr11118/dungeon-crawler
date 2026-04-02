@@ -25,6 +25,7 @@ public class Game {
       
       while (exitGame != true && isThereAMonster == true) {
             isThereAMonster = dungeonMap.isThereAnyMonstersLeft();
+            player.printInMap(dungeonMap);
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
                         
@@ -146,25 +147,25 @@ public class Game {
             // do this.
             else if (input.startsWith("MOVE ")) {
                String direction = input.substring(5);
-               if (direction.equals("UP") && player.getY()+1 < dungeonMap.getNumCols()) {
+               if (direction.equals("DOWN") && player.getY()+1 < dungeonMap.getNumCols()) {
                   player.moveTo(player.getX(), player.getY() + 1);
-                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+                  //System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
                } 
-               else if (direction.equals("DOWN") && player.getY()-1 >= 0) {
+               else if (direction.equals("UP") && player.getY()-1 >= 0) {
                   player.moveTo(player.getX(), player.getY() - 1);
-                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+                  //System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
                } 
                else if (direction.equals("LEFT") && player.getX()-1 >= 0) {  
                   player.moveTo(player.getX() - 1, player.getY()); 
-                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")"); 
+                  //System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")"); 
                } 
                else if (direction.equals("RIGHT") && player.getX()+1 < dungeonMap.getNumRows()) {
                   player.moveTo(player.getX() + 1, player.getY());
-                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+                  //System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
                } 
                else {
                   System.out.println("You're trying to move in an invalid direction. Please choose UP, DOWN, LEFT or RIGHT");
-                  System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
+                  //System.out.println("Current Coordinates: (" + player.getX() +", "+ player.getY()+")");
                }
             }
          // TODO: display a message to the user telling them their current coordinates every time they move
