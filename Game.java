@@ -4,28 +4,31 @@ public class Game {
    public static void main(String[] args) {
       boolean exitGame = false;
       Game game = new Game();
+      
+      // Create a Map which populates each element of the grid with a Room
+      // that contains a random assortment of Monsters and Items
       Map dungeonMap = new Map(5, 6);
             
       Scanner scanner = new Scanner(System.in);
       
-      // TODO: Create a Map which populates each element of the grid with a Room
-      // that contains a random assortment of Monsters and Items
-      
-      // TODO: Create a Player at a random location in the Map
-      // HINT: Generate random row/column values using Math.random()
-      // and pass them into the Player constructor
+      // Create a Player at a random location in the Map
       int playerX = (int)(Math.random()*dungeonMap.getNumRows());
       int playerY = (int)(Math.random()*dungeonMap.getNumCols());
       Player player = new Player(500, "player1", playerX, playerY);
       
       // Game Directions
       System.out.print("How to play:\nMove using command 'move' with 'up', 'down', 'right' and 'left' directions.\nExample: move up\nGet current coordinates using the command 'coordinates'\nUse the 'look' command to look arround the room\nUse 'take <item name>' command to take items from the room to your inventory\nExample: take Rusty_Sword\nUse 'drop <item name>' command to drop items from your inventory into your current room\nExample: drop Rusty_Sword\nUse 'invemtory' command to view your inventory\nUse 'fight <monster name>' command to fight the monsters that are in the same room as you, using your highest level item.\nExample: fight Ancient_Dragon\nIf your health drops to 0 you die and the game exits\nTo drink one of the healing potiones in the room use the command 'drink potion'\nTo exit the game yourself use the command 'exit'.\nThe game ends when you defeat all the monsters.\n");
+      
       // Game conditions
       boolean isThereAMonster = dungeonMap.isThereAnyMonstersLeft(); 
       
+      // What I moght do later: random events
       while (exitGame != true && isThereAMonster == true) {
+            // Refresh end
             isThereAMonster = dungeonMap.isThereAnyMonstersLeft();
+            // Print coordinate grid
             player.printInMap(dungeonMap);
+            
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
                         
