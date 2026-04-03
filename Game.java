@@ -65,6 +65,7 @@ public class Game {
                }
                if(!found){
                   System.out.println("Erorr: Item not in room");
+                  continue;
                }
             }
             
@@ -77,6 +78,7 @@ public class Game {
                }
                else {
                   System.out.println("Erorr: Player does not have the item");
+                  continue;
                }
             }
             
@@ -88,6 +90,7 @@ public class Game {
                }
                else {
                   System.out.println("Erorr: No potions to drink");
+                  continue;
                }
             }
 
@@ -104,14 +107,17 @@ public class Game {
             {
                // Sainty checks
                String monsterName = input.substring(6);
+              
                if(!player.getRoom(dungeonMap).hasMonster(monsterName)) 
                {
                   System.out.println("Erorr: Monster not in the room");
+                  continue;
 
                }
                if(player.getInventoryAsList().size() <= 0)
                {
                   System.out.println("Erorr: No items to fight");
+                  continue;
                }
                
                Monster monster = player.getRoom(dungeonMap).getMonsterByName(monsterName);
