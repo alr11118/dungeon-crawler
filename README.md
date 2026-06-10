@@ -1,29 +1,159 @@
-# Dungeon Crawler Game (AP CSA)
+# Dungeon Crawler (Text-Based Java Game)
 
-A text-based dungeon crawler game inspired by classic interactive fiction games. This project was built as part of an AP Computer Science A (AP CSA) curriculum and demonstrates object-oriented programming in Java.
+A text-based dungeon crawler inspired by classic interactive fiction games. Built in Java using object-oriented programming, this project simulates a grid-based dungeon filled with monsters, items, and interactive rooms.
 
-The player explores a procedurally generated dungeon made up of rooms containing monsters, items, and interactive elements.
-
----
-
-## Overview
-
-This project simulates a grid-based dungeon where a player can:
-- Move through rooms
-- Discover items and monsters
-- Manage an inventory
-- Interact with the world using text commands
+The player explores the dungeon, collects items, fights monsters, and tries to survive while navigating the map.
 
 ---
 
-## Classes
+## Features
 
-- `Game` — Handles user input and main game loop  
-- `Player` — Stores player state (health, position, inventory)  
-- `Map` — Stores a 2D grid of rooms  
-- `Room` — Contains items and monsters  
-- `Item` — Represents collectible objects  
-- `Monster` — Represents enemies
-- `HealingPotion` - Represents drinkable potions that increase health
+- Fully playable text-based dungeon crawler
+- 2D grid-based map system
+- Randomly generated rooms with items and monsters
+- Inventory system (take/drop items)
+- Combat system with monsters
+- Movement system with boundary checks
+- Healing potion system
+- Command-based input parser
+- Win condition (defeat all monsters)
+- Game over on player death
 
 ---
+
+## How the Game Works
+
+The game runs in a loop where the player types commands to interact with the world. Each room contains different items and monsters generated randomly at the start of the game.
+
+The player must explore the map, collect items, and defeat all monsters to win.
+
+---
+
+## Controls / Commands
+
+### Movement
+Move using:
+
+```
+move up
+```
+```
+move down
+```
+```
+move left
+```
+```
+move right
+```
+
+---
+
+### Player Status
+
+```coordinates``` → shows current position
+
+```health``` → shows player health
+
+```look``` → displays current room contents
+
+
+---
+
+### Inventory System
+
+```take <item>```  →  Take items from the room
+
+```drop <item>```  →  Drop items from your inventory
+
+```inventory``` →  View your inventory
+
+Example:
+
+```
+take Rusty_Sword
+```
+
+---
+
+### Combat
+Fight monsters in the same room:
+
+```fight <monster>```
+
+- Automatically uses the strongest available item
+- Monster is removed when defeated
+
+Example:
+```
+fight Ancient_Dragon
+```
+
+---
+
+### Healing & Items
+
+```drink potion``` →  Drink healing potions
+
+---
+
+### Exit the game:
+
+```exit```
+
+
+---
+
+## Win Condition
+
+- You win by defeating all monsters in the dungeon
+- You lose if your health reaches 0
+
+---
+
+## Project Structure
+
+Game.java
+Player.java
+Map.java
+Room.java
+Item.java
+Monster.java
+HealingPotion.java
+
+---
+
+## Concepts Used
+
+- Object-Oriented Programming (OOP)
+- Classes and objects
+- Encapsulation
+- 2D arrays
+- ArrayLists
+- Input handling
+- Game loop design
+- Random generation
+
+---
+
+## What I Learned
+
+- Designing a multi-class Java system
+- Breaking a large project into smaller components
+- Managing game state with objects
+- Parsing user input commands
+- Debugging interconnected systems
+
+---
+
+## Future Improvements
+
+- Boss fights and stronger enemies
+- Expanded item and equipment system
+- Improved combat mechanics
+- GUI version of the game
+- Larger procedural map generation
+
+---
+
+Built as a learning exercise in object-oriented programming and game development.
